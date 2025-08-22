@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU/NZ Visa Checklist</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f3f4f6;
+      --bg-tertiary: #f9fafb;
+      --text-primary: #1f2937;
+      --text-secondary: #4b5563;
+      --text-tertiary: #6b7280;
+      --border-color: #e5e7eb;
+      --progress-bg: #f3f4f6;
+      --progress-bar: #10b981;
+      --checked-bg: #ecfdf5;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --header-bg: #f9fafb;
+    }
+    
+    [data-theme="dark"] {
+      --bg-primary: #1f2937;
+      --bg-secondary: #111827;
+      --bg-tertiary: #374151;
+      --text-primary: #f9fafb;
+      --text-secondary: #e5e7eb;
+      --text-tertiary: #d1d5db;
+      --border-color: #374151;
+      --progress-bg: #374151;
+      --progress-bar: #059669;
+      --checked-bg: #064e3b;
+      --shadow-color: rgba(0, 0, 0, 0.5);
+      --header-bg: #111827;
+    }
+    
+    body {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    
+    .theme-toggle {
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 0.375rem;
+      transition: background-color 0.2s ease;
+    }
+    
+    .theme-toggle:hover {
+      background-color: var(--bg-tertiary);
+    }
+    
+    .progress-container {
+      width: 100%;
+      background-color: var(--progress-bg);
+      border-radius: 0.5rem;
+      height: 12px;
+    }
+    
+    .progress-bar {
+      height: 12px;
+      border-radius: 0.5rem;
+      background-color: var(--progress-bar);
+      transition: width 0.3s ease;
+    }
+
+    .checklist-item {
+      transition: background-color 0.2s ease;
+      border-color: var(--border-color);
+    }
+
+    .checklist-item:hover {
+      background-color: var(--bg-tertiary);
+    }
+    
+    .checklist-item.checked {
+      background-color: var(--checked-bg);
+    }
+    
+    .category-title {
+      cursor: pointer;
+      background-color: var(--header-bg);
+      border-color: var(--border-color);
+    }
+
+    .category-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .category-container.open {
+      max-height: 2000px;
+      transition: max-height 0.5s ease-in;
+    }
+    
+    .card {
+      background-color: var(--bg-primary);
+      border-color: var(--border-color);
+      box-shadow: 0 1px 3px 0 var(--shadow-color);
+    }
+    
+    /* Custom animations for welcome modal */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    /* Welcome modal specific styles */
+    #welcome-modal {
+      backdrop-filter: blur(5px);
+    }
+    
+    #welcome-content {
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    #get-started-btn {
+      position: relative;
+      z-index: 10;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white !important;
+      font-weight: bold;
+    }
+    
+    #get-started-btn span {
+      color: white !important;
+    }
+    
+    #get-started-btn svg {
+      transition: transform 0.3s ease;
+      color: white !important;
+    }
+    
+    #get-started-btn:hover svg {
+      transform: rotate(12deg);
+    }
+    
+    #get-started-btn:hover {
+      color: white !important;
+    }
+    
+    /* Force white text for the get started button */
+    #welcome-modal #get-started-btn,
+    #welcome-modal #get-started-btn *,
+    #welcome-modal #get-started-btn span,
+    #welcome-modal #get-started-btn svg {
+      color: white !important;
+      fill: white !important;
+      stroke: white !important;
+    }
+    
+    /* Ensure top animation icon is visible */
+    #welcome-modal .animate-bounce svg {
+      color: white !important;
+      stroke: white !important;
+      fill: none !important;
+    }
+    
+    /* Ensure the checkmark icon is visible */
+    #welcome-modal .w-24.h-24 svg {
+      color: black !important;
+      stroke: black !important;
+      stroke-width: 3 !important;
+    }
+    
+    /* Force visibility for the welcome checkmark icon */
+    #welcome-modal .mb-8.animate-bounce .w-24.h-24 svg {
+      color: black !important;
+      stroke: black !important;
+      stroke-width: 3 !important;
+      fill: none !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    /* Button hover effects */
+    .group:hover .group-hover\:rotate-12 {
+      transform: rotate(12deg);
+    }
+    
+    /* Gradient text animation */
+    .bg-gradient-to-r {
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans" data-theme="light">
+  <div class="container mx-auto px-4 py-6 max-w-5xl">
+    <header class="mb-8 text-center md:flex md:justify-between md:items-center">
+      <div>
+        <h1 class="text-3xl font-bold" style="color: var(--text-primary)">AU/NZ Visa Checklist</h1>
+        <p style="color: var(--text-secondary)" class="mt-2">Track your visa application progress</p>
+      </div>
+      <div class="mt-4 md:mt-0 flex flex-col items-center md:items-end">
+        <div class="flex items-center mb-2">
+          <button id="theme-toggle" class="theme-toggle flex items-center justify-center mr-4" title="Toggle dark/light mode">
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: inline-block;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex items-center justify-center md:justify-end">
+          <span class="text-sm font-medium mr-2" style="color: var(--text-secondary)">Progress:</span>
+          <span id="progress-percentage" class="text-sm font-medium text-emerald-600">0%</span>
+        </div>
+        <div class="progress-container mt-2">
+          <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="card rounded-lg p-6 mb-8">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold" style="color: var(--text-primary)">Overall Progress</h2>
+        <button id="reset-button" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 text-sm transition duration-200">
+          Reset All
+        </button>
+      </div>
+      <div class="space-y-4" id="category-progress">
+        <!-- Category progress will be added here by JavaScript -->
+      </div>
+    </div>
+
+    <div id="checklist-container" class="space-y-6">
+      <!-- Checklist items will be added here by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Loading spinner overlay -->
+  <div id="loading-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="card p-5 rounded-lg text-center">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500 mx-auto"></div>
+      <p class="mt-4" style="color: var(--text-primary)">Loading your checklist...</p>
+    </div>
+  </div>
+
+  <!-- Add Item Modal -->
+  <div id="add-item-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="card p-6 rounded-lg max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-semibold" style="color: var(--text-primary)">Add Item</h3>
+        <button id="close-add-modal" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- New Item Section -->
+      <div class="mb-6">
+        <h4 class="text-md font-medium mb-3" style="color: var(--text-primary)">Add New Item</h4>
+        <div class="flex">
+          <input type="text" id="new-item-input" placeholder="Enter item name..." 
+                 class="flex-1 px-3 py-2 border rounded-l focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                 style="background-color: var(--bg-primary); color: var(--text-primary); border-color: var(--border-color);">
+          <button id="add-new-item-btn" class="px-4 py-2 bg-emerald-500 text-white rounded-r hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            Add
+          </button>
+        </div>
+      </div>
+      
+      <!-- Removed Items Section -->
+      <div id="removed-items-section" class="hidden">
+        <h4 class="text-md font-medium mb-3" style="color: var(--text-primary)">Restore Removed Items</h4>
+        <div id="removed-items-list" class="space-y-2">
+          <!-- Removed items will be populated here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome/Get Started Modal -->
+  <div id="welcome-modal" class="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50 hidden">
+    <!-- Loading overlay for welcome modal -->
+    <div id="welcome-loading" class="absolute inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-10">
+      <div class="text-center">
+        <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-emerald-500 mx-auto mb-4"></div>
+        <p class="text-lg font-medium" style="color: var(--text-primary)">Loading welcome screen...</p>
+      </div>
+    </div>
+    
+    <div class="w-full h-full flex items-center justify-center p-4">
+      <div class="w-full h-full flex flex-col items-center justify-center text-center transform transition-all duration-500 scale-100 opacity-100" id="welcome-content">
+        <!-- Welcome Icon with Animation -->
+        <div class="mb-8 animate-bounce">
+          <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto shadow-lg border-2 border-emerald-500">
+            <svg class="w-12 h-12" fill="none" stroke="black" stroke-width="3" viewBox="0 0 24 24" style="color: black !important;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Welcome Title with Typing Animation -->
+        <div class="mb-6">
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-emerald-600 dark:text-emerald-400 animate-pulse">
+            Welcome to AU/NZ Visa Checklist!
+          </h2>
+          <p class="text-xl md:text-2xl lg:text-3xl mb-8 text-gray-600 dark:text-gray-300">Let's start your visa application journey</p>
+        </div>
+        
+        <!-- Features List with Staggered Animation -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6 mb-10 max-w-6xl w-full px-4">
+          <div class="feature-card flex items-start space-x-4 p-6 rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+            <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Comprehensive Checklist</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Complete list of required documents for AU/NZ visa applications</p>
+            </div>
+          </div>
+          
+          <div class="feature-card flex items-start space-x-4 p-6 rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Real-time Progress</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Track your application progress with visual indicators</p>
+            </div>
+          </div>
+          
+          <div class="feature-card flex items-start space-x-4 p-6 rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">Customizable</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Add, remove, and modify items to match your specific needs</p>
+            </div>
+          </div>
+          
+          <div class="feature-card flex items-start space-x-4 p-6 rounded-xl shadow-lg transform transition-all duration-300 hover:scale-105 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+            <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900 dark:text-white">localStorage</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Your progress is saved securely stored in local device</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Action Button with Animation -->
+        <div class="mb-8">
+          <button id="get-started-btn" class="group relative px-12 py-4 bg-black rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl font-bold text-lg shadow-lg" style="color: white !important; background-color: black !important;">
+            <span class="relative z-10 flex items-center justify-center" style="color: white !important;">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="white" viewBox="0 0 24 24" style="color: white !important;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+              <span style="color: white !important; font-weight: bold;">Let's Start the Process</span>
+            </span>
+          </button>
+        </div>
+        
+        <!-- Additional Info with Fade Animation -->
+        <div class="p-6 rounded-xl shadow-md max-w-4xl w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            <strong>Note:</strong> This checklist is designed to help you organize your visa application documents. 
+            Please refer to official immigration websites for the most up-to-date requirements.
+          </p>
+        </div>
+        
+        <!-- Compact Developer and Content Creator Info -->
+        <div class="absolute bottom-4 left-4">
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-3 text-xs">
+            <div class="flex items-center space-x-4">
+              <div class="flex items-center space-x-2">
+                <span class="text-gray-600 dark:text-gray-300">Dev:</span>
+                <a href="https://github.com/lakshithaonline" target="_blank" rel="noopener noreferrer" 
+                   class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors font-medium">
+                  Lakshitha Geethmal
+                </a>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-gray-600 dark:text-gray-300">Content:</span>
+                <a href="https://www.linkedin.com/in/shehani-allang-a78a0640/" target="_blank" rel="noopener noreferrer" 
+                   class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 transition-colors font-medium">
+                  Shehani Allang
+                </a>
+                <span class="text-emerald-600 dark:text-emerald-400 text-xs">(PIER)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Alert Modal -->
+  <div id="custom-alert-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="card p-6 rounded-lg max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="alert-content">
+      <div class="flex items-center mb-4">
+        <div id="alert-icon" class="w-8 h-8 rounded-full flex items-center justify-center mr-3">
+          <!-- Icon will be inserted here -->
+        </div>
+        <h3 id="alert-title" class="text-lg font-semibold" style="color: var(--text-primary)">Alert</h3>
+      </div>
+      <p id="alert-message" class="text-sm mb-6" style="color: var(--text-secondary)">Alert message goes here</p>
+      <div class="flex justify-end space-x-3">
+        <button id="alert-cancel" class="px-4 py-2 text-sm border rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors hidden" style="color: var(--text-primary); border-color: var(--border-color);">
+          Cancel
+        </button>
+        <button id="alert-confirm" class="px-4 py-2 text-sm bg-emerald-500 text-white rounded hover:bg-emerald-600 transition-colors">
+          OK
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-12 py-8 border-t" style="border-color: var(--border-color); background-color: var(--bg-primary);">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="text-center">
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary)">AU/NZ Visa Checklist</h3>
+          <p class="text-sm" style="color: var(--text-secondary)">Streamline your visa application process with our comprehensive checklist tool</p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-8 mb-4">
+          <div class="flex items-center space-x-2">
+            <svg class="h-4 w-4" style="color: var(--text-tertiary)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-sm" style="color: var(--text-secondary)">Real-time Progress Tracking</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <svg class="h-4 w-4" style="color: var(--text-tertiary)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+            <span class="text-sm" style="color: var(--text-secondary)">Customizable Checklist</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <svg class="h-4 w-4" style="color: var(--text-tertiary)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+            <span class="text-sm" style="color: var(--text-secondary)">Secure Cloud Storage</span>
+          </div>
+        </div>
+        
+        <div class="border-t pt-4" style="border-color: var(--border-color);">
+          <p class="text-xs" style="color: var(--text-tertiary)">
+            © <span id="current-year"></span> AU/NZ Visa Checklist. All rights reserved.
+          </p>
+          <div class="mt-2 space-y-1">
+            <p class="text-xs" style="color: var(--text-tertiary)">
+              Developed with ❤️ by <span class="font-medium" style="color: var(--text-secondary)">Lakshitha Geethmal</span>
+            </p>
+            <p class="text-xs" style="color: var(--text-tertiary)">
+              Content by <span class="font-medium" style="color: var(--text-secondary)">Shehani Allang</span> - Senior Consultant - Australia & NZ | PIER Qualified
+            </p>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="mt-3 flex justify-center space-x-4">
+            <a href="https://github.com/lakshithaonline" target="_blank" rel="noopener noreferrer" 
+               class="text-xs hover:text-emerald-500 transition-colors" style="color: var(--text-tertiary);">
+              <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/lakshitha-geethmal/" target="_blank" rel="noopener noreferrer" 
+               class="text-xs hover:text-emerald-500 transition-colors" style="color: var(--text-tertiary);">
+              <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              Lakshitha Geethmal
+            </a>
+            <a href="https://www.linkedin.com/in/shehani-allang-a78a0640/" target="_blank" rel="noopener noreferrer" 
+               class="text-xs hover:text-emerald-500 transition-colors" style="color: var(--text-tertiary);">
+              <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              Shehani Allang
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import the functions you need from the SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore, collection, doc, setDoc, getDoc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+    
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "",
+      authDomain: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: "",
+      measurementId: ""
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Default checklist data
+    const defaultCategories = [
+      {
+        name: "DOCUMENTS RELATED TO STUDENT",
+        items: [
+          "GTE - SOP",
+          "Passport Size Photo (White Background)",
+          "Passport (Bio Data page, Alteration pages & Visa pages)",
+          "National Identity Card English Translated",
+          "Birth Certificate English Translation",
+          "Marriage Certificate English Translation",
+          "Updated CV",
+          "G.C.E O/L & G.C.E A/L Certificates",
+          "Other Educational Certificates (including IELTS)",
+          "Current Employer - Service Letter / Appointment Letter / Contract",
+          "Current Employer - Last 12 months' salary Slips",
+          "Current Employer - Last 12-month salary crediting bank statements"
+        ]
+      },
+      {
+        name: "DOCUMENTS RELATED TO SPOUSE",
+        items: [
+          "Passport (Bio Data page, Alteration pages & Visa pages)",
+          "Passport Size Photo (White Background)",
+          "National Identity Card - English Translation",
+          "Birth Certificate English Translation",
+          "Academics Docs",
+          "Current Employer - Service Letter / Appointment Letter / Contract",
+          "Current Employer - Last 3 months' salary Slips",
+          "Current Employer - Last 3-month salary crediting bank statements"
+        ]
+      },
+      {
+        name: "DOCUMENTS RELATED TO MARRIAGE",
+        items: [
+          "Wedding Photos",
+          "Photos Before Marriage",
+          "Skype, Messenger Chat History (Viber, WhatsApp, etc.), Telephone History",
+          "Consent letters from both parents"
+        ]
+      },
+      {
+        name: "AFFIDAVITS - ASSETS",
+        items: [
+          "Affidavit for Assets (Include Deed No, Vehicle Registration No, and Current Market Value)",
+          "Property Deeds - (if Applicable) English Translated",
+          "Vehicle Registrations - (if Applicable)"
+        ]
+      },
+      {
+        name: "DOCUMENTS RELATED TO PARENTS",
+        items: [
+          "Father's Birth Certificate - English Translation",
+          "Father's NIC - English Translation",
+          "Parent's Marriage Certificate - English Translation",
+          "Mother's Birth Certificate - English Translation",
+          "Mother's NIC - English Translation",
+          "Father's Income - Pension Letter / Pension Card - English Translation",
+          "Father's Income - Last 3-month Pension slips",
+          "Father's Income - Last 3 months pension crediting bank statements",
+          "Cultivation Income - Business & Personal Current Accounts for the last 06 months",
+          "Cultivation Income - Profit & Loss / Auditor's Account Statements",
+          "Cultivation Income - Business Invoices / Bills / Receipts etc.",
+          "Cultivation Income - Photos of Business",
+          "Cultivation Income - Gramasevaka Letter confirming land"
+        ]
+      },
+      {
+        name: "DOCUMENTS RELATED TO PARENT-IN-LAWS",
+        items: [
+          "Father-in-law's Birth Certificate - English Translation",
+          "Father-in-law's NIC - English Translation",
+          "Parent-in-law's Marriage Certificate - English Translation",
+          "Mother-in-law's Birth Certificate - English Translation",
+          "Mother-in-law's NIC - English Translation",
+          "Father-in-law's Income - Service Letter / Appointment Letter / Contract",
+          "Father-in-law's Income - Last 3 months salary Slips",
+          "Father-in-law's Income - Last 3-month salary crediting bank statements",
+          "Business Income - Business Registration",
+          "Business Income - Business & Personal Current Accounts for the last 06 months",
+          "Business Income - Profit & Loss Statements - Auditor's Auditor for 1 year",
+          "Business Income - Business Invoices / Bills / Receipts etc.",
+          "Business Income - Photos of Business",
+          "Rental Income - Lease Agreement",
+          "Rental Income - Last 3 month rent crediting bank statements",
+          "Funds Documents - Original Account Balance Confirmation Letters",
+          "Funds Documents - Fixed Deposit Certificates (Without Under Lien)",
+          "Funds Documents - Fixed Deposit Renewal Notices",
+          "Funds Documents - Certified copies of Savings Account Statements"
+        ]
+      }
+    ];
+
+    // Variables to store app state
+    let checklistData = {};
+    let removedItems = {}; // Track removed items by category
+    let totalItems = 0;
+    let completedItems = 0;
+    let openCategoryIndexes = [0]; // Track which categories are open, default to first one
+    let currentTheme = localStorage.getItem('theme') || 'light';
+
+    // Helper function to restore removed items to their original categories
+    function restoreRemovedItems() {
+      if (checklistData.removedItems && Object.keys(checklistData.removedItems).length > 0) {
+        Object.keys(checklistData.removedItems).forEach(categoryIndex => {
+          const categoryIdx = parseInt(categoryIndex);
+          if (checklistData.categories[categoryIdx]) {
+            checklistData.removedItems[categoryIndex].forEach(removedItem => {
+              // Add the removed item back to its original category
+              checklistData.categories[categoryIdx].items.push({
+                name: removedItem.name,
+                completed: false // Reset completion status
+              });
+            });
+          }
+        });
+        // Clear removed items after restoration
+        checklistData.removedItems = {};
+        removedItems = {};
+      }
+    }
+
+    // Show add item modal with removed items list
+    function showAddItemModal(categoryIndex) {
+      const modal = document.getElementById('add-item-modal');
+      const removedItemsSection = document.getElementById('removed-items-section');
+      const removedItemsList = document.getElementById('removed-items-list');
+      const newItemInput = document.getElementById('new-item-input');
+      
+      // Clear previous content
+      newItemInput.value = '';
+      removedItemsList.innerHTML = '';
+      
+      // Check if there are removed items for this category
+      const categoryRemovedItems = checklistData.removedItems[categoryIndex] || [];
+      
+      if (categoryRemovedItems.length > 0) {
+        // Show removed items section
+        removedItemsSection.classList.remove('hidden');
+        
+        // Populate removed items list
+        categoryRemovedItems.forEach((removedItem, index) => {
+          const itemEl = document.createElement('div');
+          itemEl.className = 'flex items-center justify-between p-3 border rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors';
+          itemEl.style.borderColor = 'var(--border-color)';
+          itemEl.innerHTML = `
+            <span class="text-sm" style="color: var(--text-primary)">${removedItem.name}</span>
+            <button class="restore-item-btn px-3 py-1 bg-emerald-500 text-white text-xs rounded hover:bg-emerald-600 transition-colors" data-index="${index}">
+              Restore
+            </button>
+          `;
+          
+          // Add event listener for restore button
+          itemEl.querySelector('.restore-item-btn').addEventListener('click', async () => {
+            await restoreRemovedItem(categoryIndex, index);
+            showAddItemModal(categoryIndex); // Refresh the modal
+          });
+          
+          removedItemsList.appendChild(itemEl);
+        });
+      } else {
+        // Hide removed items section if no removed items
+        removedItemsSection.classList.add('hidden');
+      }
+      
+      // Show modal
+      modal.classList.remove('hidden');
+      modal.dataset.categoryIndex = categoryIndex; // Store category index in modal
+      
+      // Focus on input
+      newItemInput.focus();
+    }
+
+    // Restore a specific removed item
+    async function restoreRemovedItem(categoryIndex, removedItemIndex) {
+      try {
+        const removedItem = checklistData.removedItems[categoryIndex][removedItemIndex];
+        
+        // Add the item back to the category
+        checklistData.categories[categoryIndex].items.push({
+          name: removedItem.name,
+          completed: false
+        });
+        
+        // Remove from removed items list
+        checklistData.removedItems[categoryIndex].splice(removedItemIndex, 1);
+        
+        // If no more removed items for this category, remove the category entry
+        if (checklistData.removedItems[categoryIndex].length === 0) {
+          delete checklistData.removedItems[categoryIndex];
+        }
+        
+        // Save which categories are open before updating
+        saveOpenCategoryState();
+        
+        // Update Firestore
+        const updatedData = JSON.parse(JSON.stringify({
+          categories: checklistData.categories,
+          removedItems: checklistData.removedItems
+        }));
+        await setDoc(doc(db, "checklists", "main"), updatedData);
+        
+        // Re-render the checklist
+        renderChecklist(checklistData.categories);
+        updateProgress();
+        
+              } catch (error) {
+          console.error("Error restoring item:", error);
+          showCustomAlert("Failed to restore item. Please try again.", "Error", "error");
+        }
+    }
+
+    // Add new item functionality
+    async function addNewItem(categoryIndex, itemName) {
+      try {
+        // Add the new item to the category
+        checklistData.categories[categoryIndex].items.push({
+          name: itemName.trim(),
+          completed: false
+        });
+        
+        // Save which categories are open before updating
+        saveOpenCategoryState();
+        
+        // Update Firestore
+        const updatedData = JSON.parse(JSON.stringify({
+          categories: checklistData.categories,
+          removedItems: checklistData.removedItems
+        }));
+        await setDoc(doc(db, "checklists", "main"), updatedData);
+        
+        // Re-render the checklist
+        renderChecklist(checklistData.categories);
+        updateProgress();
+        
+        // Close modal
+        document.getElementById('add-item-modal').classList.add('hidden');
+        
+              } catch (error) {
+          console.error("Error adding item:", error);
+          showCustomAlert("Failed to add item. Please try again.", "Error", "error");
+        }
+    }
+
+    // Initialize the app
+    async function initApp() {
+      try {
+        // Check if we already have data in Firestore
+        const docRef = doc(db, "checklists", "main");
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          // Use the existing data from Firestore
+          checklistData = docSnap.data();
+          // Ensure categories is always an array
+          if (!Array.isArray(checklistData.categories)) {
+            console.error("Data format error: categories is not an array", checklistData);
+            checklistData.categories = defaultCategories.map(category => ({
+              name: category.name,
+              items: category.items.map(item => ({
+                name: item,
+                completed: false
+              }))
+            }));
+            await setDoc(docRef, checklistData);
+          }
+          
+          // Initialize removedItems if not present
+          if (!checklistData.removedItems) {
+            checklistData.removedItems = {};
+            await setDoc(docRef, checklistData);
+          }
+          removedItems = checklistData.removedItems || {};
+        } else {
+          // Initialize with default data
+          checklistData = {
+            categories: defaultCategories.map(category => ({
+              name: category.name,
+              items: category.items.map(item => ({
+                name: item,
+                completed: false
+              }))
+            })),
+            removedItems: {}
+          };
+          removedItems = {};
+
+          // Save the default data to Firestore
+          await setDoc(docRef, checklistData);
+        }
+        
+        console.log("Checklist data:", checklistData);
+
+        // Render the checklist UI
+        renderChecklist(checklistData.categories);
+        updateProgress();
+
+        // Add real-time listener for data changes
+        onSnapshot(doc(db, "checklists", "main"), (doc) => {
+          if (doc.exists()) {
+            const data = doc.data();
+            if (data && Array.isArray(data.categories)) {
+              // Store the old data to compare
+              const oldData = JSON.stringify(checklistData);
+              
+              // Update to new data
+              checklistData = data;
+              removedItems = data.removedItems || {};
+              
+              // Only re-render if this is not our own update
+              const newData = JSON.stringify(checklistData);
+              if (oldData !== newData) {
+                renderChecklistPreservingState(checklistData.categories);
+                updateProgress();
+              }
+            } else {
+              console.error("Received invalid data format from Firestore:", data);
+            }
+          }
+        });
+
+        // Hide loading overlay
+        document.getElementById('loading-overlay').style.display = 'none';
+        
+        // Check if welcome modal should be shown
+        setTimeout(() => {
+          if (shouldShowWelcomeModal()) {
+            // Hide checklist if welcome should be shown
+            document.getElementById('checklist-container').style.display = 'none';
+            document.querySelector('.card.rounded-lg.p-6.mb-8').style.display = 'none';
+            checkAndShowWelcomeModal();
+          } else {
+            // Show checklist directly if there's progress
+            document.getElementById('checklist-container').style.display = 'block';
+            document.querySelector('.card.rounded-lg.p-6.mb-8').style.display = 'block';
+          }
+        }, 500); // Small delay to ensure everything is loaded
+      } catch (error) {
+        console.error("Error initializing app:", error);
+        showCustomAlert("Error loading data. Please refresh the page and try again.", "Error", "error");
+      }
+    }
+
+    // Render checklist UI preserving the open/closed state of categories
+    function renderChecklistPreservingState(categories) {
+      if (!Array.isArray(categories)) {
+        console.error("renderChecklist error: categories is not an array", categories);
+        return;
+      }
+      
+      // Save which categories are currently open
+      openCategoryIndexes = [];
+      document.querySelectorAll('.category-container').forEach((container, index) => {
+        if (container.classList.contains('open')) {
+          openCategoryIndexes.push(index);
+        }
+      });
+      
+      // If no categories are open, default to opening the first one
+      if (openCategoryIndexes.length === 0 && categories.length > 0) {
+        openCategoryIndexes = [0];
+      }
+      
+      renderChecklist(categories);
+    }
+
+    // Render checklist UI
+    function renderChecklist(categories) {
+      if (!Array.isArray(categories)) {
+        console.error("renderChecklist error: categories is not an array", categories);
+        return;
+      }
+      
+      const container = document.getElementById('checklist-container');
+      container.innerHTML = '';
+
+      // Render category progress
+      const categoryProgressContainer = document.getElementById('category-progress');
+      categoryProgressContainer.innerHTML = '';
+
+      categories.forEach((category, categoryIndex) => {
+        // Add category progress
+        const categoryCompletedItems = category.items.filter(item => item.completed).length;
+        const categoryTotalItems = category.items.length;
+        const categoryProgress = categoryTotalItems > 0 ? (categoryCompletedItems / categoryTotalItems) * 100 : 0;
+
+                  const categoryProgressEl = document.createElement('div');
+        categoryProgressEl.className = 'flex items-center';
+        categoryProgressEl.innerHTML = `
+          <div class="w-1/2 md:w-3/5">
+            <span class="text-sm font-medium" style="color: var(--text-secondary)">${category.name}</span>
+          </div>
+          <div class="w-1/2 md:w-2/5 flex items-center">
+            <div class="progress-container flex-grow mr-2">
+              <div class="progress-bar" style="width: ${categoryProgress}%"></div>
+            </div>
+            <span class="text-xs font-medium whitespace-nowrap" style="color: var(--text-tertiary)">${categoryCompletedItems}/${categoryTotalItems}</span>
+          </div>
+        `;
+        categoryProgressContainer.appendChild(categoryProgressEl);
+
+        // Add category and its items
+        const categoryEl = document.createElement('div');
+        categoryEl.className = 'card rounded-lg overflow-hidden';
+        
+        // Category header
+        const categoryHeader = document.createElement('div');
+        categoryHeader.className = 'category-title p-4 border-b flex justify-between items-center';
+        categoryHeader.innerHTML = `
+          <h3 class="text-lg font-semibold" style="color: var(--text-primary)">${category.name}</h3>
+          <div class="flex items-center">
+            <span class="text-sm font-medium mr-3" style="color: var(--text-secondary)">${categoryCompletedItems}/${categoryTotalItems}</span>
+            <button class="add-item-btn mr-2 p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors" title="Add new item">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+            </button>
+            <svg class="category-icon h-5 w-5 transform transition-transform" style="color: var(--text-tertiary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        `;
+        
+        // Category items container
+        const itemsContainer = document.createElement('div');
+        itemsContainer.className = 'category-container';
+        itemsContainer.dataset.categoryIndex = categoryIndex;
+        
+        // Add each checklist item
+        category.items.forEach((item, itemIndex) => {
+          const itemEl = document.createElement('div');
+          itemEl.className = `checklist-item p-4 border-b flex items-center ${item.completed ? 'checked' : ''}`;
+          itemEl.innerHTML = `
+            <input type="checkbox" id="item-${categoryIndex}-${itemIndex}" 
+              class="h-5 w-5 text-emerald-600 rounded focus:ring-emerald-500 cursor-pointer" 
+              ${item.completed ? 'checked' : ''}>
+            <label for="item-${categoryIndex}-${itemIndex}" class="ml-3 block text-sm font-medium cursor-pointer flex-grow" style="color: var(--text-primary)">
+              ${item.name}
+            </label>
+            <button class="remove-item-btn p-1 rounded hover:bg-red-100 dark:hover:bg-red-900 transition-colors" title="Remove item">
+              <svg class="h-4 w-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+              </svg>
+            </button>
+          `;
+          
+          // Add event listener for checkbox
+          itemEl.querySelector('input[type="checkbox"]').addEventListener('change', async (e) => {
+            e.stopPropagation(); // Prevent event bubbling to the category header
+            try {
+              // Update local state
+              if (checklistData && 
+                  Array.isArray(checklistData.categories) && 
+                  checklistData.categories[categoryIndex] && 
+                  Array.isArray(checklistData.categories[categoryIndex].items) && 
+                  checklistData.categories[categoryIndex].items[itemIndex]) {
+                  
+                checklistData.categories[categoryIndex].items[itemIndex].completed = e.target.checked;
+                
+                // Update UI immediately without waiting for Firebase
+                if (e.target.checked) {
+                  itemEl.classList.add('checked');
+                } else {
+                  itemEl.classList.remove('checked');
+                }
+                
+                // Save which categories are open before updating
+                saveOpenCategoryState();
+                
+                // Update progress indicators
+                updateCategoryProgress(categoryIndex);
+                updateOverallProgress();
+                
+                // Create a deep copy of the data to send to Firestore
+                const updatedData = JSON.parse(JSON.stringify({
+                  categories: checklistData.categories,
+                  removedItems: checklistData.removedItems
+                }));
+                
+                // Update Firestore with the complete object
+                await setDoc(doc(db, "checklists", "main"), updatedData);
+              } else {
+                console.error("Error: Invalid data structure when updating item");
+                throw new Error("Invalid data structure");
+              }
+            } catch (error) {
+              console.error("Error updating item:", error);
+              showCustomAlert("Failed to update item. Please try again.", "Error", "error");
+            }
+          });
+          
+          // Add event listener for remove button
+          itemEl.querySelector('.remove-item-btn').addEventListener('click', async (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            const confirmed = await showCustomAlert(`Are you sure you want to remove "${item.name}"?`, "Confirm Removal", "warning", true);
+          if (confirmed) {
+              try {
+                // Store the removed item with its original index for proper restoration
+                if (!removedItems[categoryIndex]) {
+                  removedItems[categoryIndex] = [];
+                }
+                removedItems[categoryIndex].push({
+                  name: item.name,
+                  completed: item.completed,
+                  originalIndex: itemIndex
+                });
+                
+                // Remove the item from the current list
+                checklistData.categories[categoryIndex].items.splice(itemIndex, 1);
+                
+                // Update the removedItems in checklistData
+                checklistData.removedItems = removedItems;
+                
+                // Save which categories are open before updating
+                saveOpenCategoryState();
+                
+                // Update Firestore
+                const updatedData = JSON.parse(JSON.stringify({
+                  categories: checklistData.categories,
+                  removedItems: checklistData.removedItems
+                }));
+                await setDoc(doc(db, "checklists", "main"), updatedData);
+                
+                // Re-render the checklist
+                renderChecklist(checklistData.categories);
+                updateProgress();
+              } catch (error) {
+                console.error("Error removing item:", error);
+                showCustomAlert("Failed to remove item. Please try again.", "Error", "error");
+              }
+            }
+          });
+          
+          itemsContainer.appendChild(itemEl);
+        });
+        
+        categoryEl.appendChild(categoryHeader);
+        categoryEl.appendChild(itemsContainer);
+        container.appendChild(categoryEl);
+        
+        // Add toggle functionality for category
+        categoryHeader.addEventListener('click', () => {
+          const isOpen = itemsContainer.classList.contains('open');
+          
+          // Update the openCategoryIndexes array
+          if (isOpen) {
+            // Remove this index from open categories
+            const index = openCategoryIndexes.indexOf(categoryIndex);
+            if (index !== -1) {
+              openCategoryIndexes.splice(index, 1);
+            }
+          } else {
+            // Add this index to open categories
+            if (!openCategoryIndexes.includes(categoryIndex)) {
+              openCategoryIndexes.push(categoryIndex);
+            }
+          }
+          
+          // Toggle the open class
+          itemsContainer.classList.toggle('open');
+          const icon = categoryHeader.querySelector('.category-icon');
+          if (itemsContainer.classList.contains('open')) {
+            icon.style.transform = 'rotate(180deg)';
+          } else {
+            icon.style.transform = 'rotate(0)';
+          }
+        });
+        
+        // Add event listener for add button
+        categoryHeader.querySelector('.add-item-btn').addEventListener('click', async (e) => {
+          e.stopPropagation(); // Prevent event bubbling to category header
+          showAddItemModal(categoryIndex);
+        });
+      });
+
+      // Open categories based on saved state
+      applyOpenCategoryState();
+    }
+    
+    // Save which categories are currently open
+    function saveOpenCategoryState() {
+      openCategoryIndexes = [];
+      document.querySelectorAll('.category-container').forEach((container, index) => {
+        if (container.classList.contains('open')) {
+          openCategoryIndexes.push(index);
+        }
+      });
+    }
+    
+    // Apply the saved open/closed state to categories
+    function applyOpenCategoryState() {
+      const categoryContainers = document.querySelectorAll('.category-container');
+      const categoryIcons = document.querySelectorAll('.category-icon');
+      
+      // Open the saved categories
+      openCategoryIndexes.forEach(index => {
+        if (categoryContainers[index]) {
+          categoryContainers[index].classList.add('open');
+          if (categoryIcons[index]) {
+            categoryIcons[index].style.transform = 'rotate(180deg)';
+          }
+        }
+      });
+    }
+    
+    // Update progress for a specific category
+    function updateCategoryProgress(categoryIndex) {
+      if (checklistData && 
+          Array.isArray(checklistData.categories) && 
+          checklistData.categories[categoryIndex] && 
+          Array.isArray(checklistData.categories[categoryIndex].items)) {
+        
+        const category = checklistData.categories[categoryIndex];
+        const categoryCompletedItems = category.items.filter(item => item && item.completed).length;
+        const categoryTotalItems = category.items.length;
+        const categoryProgress = categoryTotalItems > 0 ? (categoryCompletedItems / categoryTotalItems) * 100 : 0;
+        
+        // Update the progress bar for this category
+        const categoryProgressBars = document.querySelectorAll('#category-progress .progress-bar');
+        const categoryCountTexts = document.querySelectorAll('#category-progress .text-xs');
+        if (categoryProgressBars[categoryIndex]) {
+          categoryProgressBars[categoryIndex].style.width = `${categoryProgress}%`;
+        }
+        if (categoryCountTexts[categoryIndex]) {
+          categoryCountTexts[categoryIndex].textContent = `${categoryCompletedItems}/${categoryTotalItems}`;
+        }
+        
+        // Update the count in the category header
+        const categoryHeaders = document.querySelectorAll('.category-title .text-sm');
+        if (categoryHeaders[categoryIndex]) {
+          categoryHeaders[categoryIndex].textContent = `${categoryCompletedItems}/${categoryTotalItems}`;
+        }
+      }
+    }
+    
+    // Update overall progress indicators
+    function updateOverallProgress() {
+      totalItems = 0;
+      completedItems = 0;
+      
+      if (checklistData && Array.isArray(checklistData.categories)) {
+        checklistData.categories.forEach(category => {
+          if (category && Array.isArray(category.items)) {
+            category.items.forEach(item => {
+              totalItems++;
+              if (item && item.completed) {
+                completedItems++;
+              }
+            });
+          }
+        });
+      }
+      
+      const progressPercentage = totalItems > 0 ? (completedItems / totalItems) * 100 : 0;
+      document.getElementById('progress-percentage').textContent = `${Math.round(progressPercentage)}%`;
+      document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+      
+      // Save progress to localStorage
+      const progressData = {
+        completedItems: completedItems,
+        totalItems: totalItems,
+        progressPercentage: progressPercentage,
+        lastUpdated: new Date().toISOString()
+      };
+      localStorage.setItem('checklist-progress', JSON.stringify(progressData));
+    }
+
+    // Update progress indicators (full update)
+    function updateProgress() {
+      // This is the full update that's called during initial load
+      updateOverallProgress();
+      
+      // Update individual category progress
+      if (checklistData && Array.isArray(checklistData.categories)) {
+        checklistData.categories.forEach((category, index) => {
+          updateCategoryProgress(index);
+        });
+      }
+    }
+
+    // Reset all checklist items
+    document.getElementById('reset-button').addEventListener('click', async () => {
+      const confirmed = await showCustomAlert("Are you sure you want to reset all progress? This action cannot be undone.", "Confirm Reset", "warning", true);
+      if (confirmed) {
+        try {
+          // Reset to default categories with all items (including previously removed ones)
+          checklistData.categories = defaultCategories.map(category => ({
+            name: category.name,
+            items: category.items.map(item => ({
+              name: item,
+              completed: false
+            }))
+          }));
+          
+          // Restore any removed items and clear the removed items list
+          restoreRemovedItems();
+          
+          // Save which categories are open before updating
+          saveOpenCategoryState();
+          
+          // Create a fresh copy to avoid reference issues
+          const resetData = JSON.parse(JSON.stringify({
+            categories: checklistData.categories,
+            removedItems: checklistData.removedItems
+          }));
+          
+          // Update Firestore
+          await setDoc(doc(db, "checklists", "main"), resetData);
+          
+          // Update UI
+          renderChecklist(checklistData.categories);
+          updateProgress();
+          
+          showCustomAlert("All progress has been reset and removed items have been restored.", "Success", "success");
+        } catch (error) {
+          console.error("Error resetting progress:", error);
+          showCustomAlert("Failed to reset progress. Please try again.", "Error", "error");
+        }
+      }
+    });
+
+    // Theme toggle functionality
+    function initTheme() {
+      // Apply saved theme or default to light
+      if (currentTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('moon-icon').style.display = 'none';
+        document.getElementById('sun-icon').style.display = 'inline-block';
+      } else {
+        document.body.setAttribute('data-theme', 'light');
+        document.getElementById('moon-icon').style.display = 'inline-block';
+        document.getElementById('sun-icon').style.display = 'none';
+      }
+    }
+    
+    // Toggle between light and dark theme
+    function toggleTheme() {
+      if (currentTheme === 'light') {
+        currentTheme = 'dark';
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('moon-icon').style.display = 'none';
+        document.getElementById('sun-icon').style.display = 'inline-block';
+      } else {
+        currentTheme = 'light';
+        document.body.setAttribute('data-theme', 'light');
+        document.getElementById('moon-icon').style.display = 'inline-block';
+        document.getElementById('sun-icon').style.display = 'none';
+      }
+      
+      // Save theme preference to localStorage
+      localStorage.setItem('theme', currentTheme);
+    }
+    
+    // Add theme toggle event listener
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+      
+      // Update copyright year
+      updateCopyrightYear();
+      
+      // Add modal event listeners
+      document.getElementById('close-add-modal').addEventListener('click', () => {
+        document.getElementById('add-item-modal').classList.add('hidden');
+      });
+      
+      // Close modal when clicking outside
+      document.getElementById('add-item-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'add-item-modal') {
+          e.target.classList.add('hidden');
+        }
+      });
+      
+      // Add new item button functionality
+      document.getElementById('add-new-item-btn').addEventListener('click', async () => {
+        const input = document.getElementById('new-item-input');
+        const itemName = input.value.trim();
+        
+        if (itemName) {
+          // Get the current category index from the modal
+          const modal = document.getElementById('add-item-modal');
+          const categoryIndex = parseInt(modal.dataset.categoryIndex || '0');
+          await addNewItem(categoryIndex, itemName);
+        }
+      });
+      
+      // Enter key to add new item
+      document.getElementById('new-item-input').addEventListener('keypress', async (e) => {
+        if (e.key === 'Enter') {
+          const itemName = e.target.value.trim();
+          if (itemName) {
+            const modal = document.getElementById('add-item-modal');
+            const categoryIndex = parseInt(modal.dataset.categoryIndex || '0');
+            await addNewItem(categoryIndex, itemName);
+          }
+        }
+      });
+      
+      // Welcome modal event listeners
+      document.getElementById('get-started-btn').addEventListener('click', () => {
+        hideWelcomeModal();
+      });
+      
+      // Close welcome modal when clicking outside
+      document.getElementById('welcome-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'welcome-modal') {
+          hideWelcomeModal();
+        }
+      });
+      
+      initApp();
+    });
+
+    // Update copyright year automatically
+    function updateCopyrightYear() {
+      const currentYear = new Date().getFullYear();
+      const yearElement = document.getElementById('current-year');
+      if (yearElement) {
+        yearElement.textContent = currentYear;
+      }
+    }
+
+    // Check if welcome modal should be shown
+    function shouldShowWelcomeModal() {
+      // Check if there's any progress saved in localStorage
+      const savedProgress = localStorage.getItem('checklist-progress');
+      
+      // If there's saved progress, don't show welcome
+      if (savedProgress) {
+        try {
+          const progress = JSON.parse(savedProgress);
+          // Check if any items are completed
+          if (progress.completedItems && progress.completedItems > 0) {
+            return false; // Don't show welcome if there's progress
+          }
+        } catch (e) {
+          console.log('Error parsing saved progress:', e);
+        }
+      }
+      
+      // Show welcome if no progress or no saved data
+      return true;
+    }
+
+    // Show welcome modal
+    function showWelcomeModal() {
+      console.log('Showing welcome modal');
+      const modal = document.getElementById('welcome-modal');
+      const content = document.getElementById('welcome-content');
+      const loading = document.getElementById('welcome-loading');
+      
+      if (!modal || !content) {
+        console.error('Welcome modal elements not found');
+        return;
+      }
+      
+      // Start with content hidden for animation
+      content.classList.remove('scale-100', 'opacity-100');
+      content.classList.add('scale-95', 'opacity-0');
+      
+      modal.classList.remove('hidden');
+      
+      // Hide loading overlay after a short delay
+      setTimeout(() => {
+        if (loading) {
+          loading.style.display = 'none';
+        }
+      }, 800);
+      
+      // Trigger entrance animation
+      setTimeout(() => {
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+        console.log('Welcome modal animation triggered');
+      }, 100);
+      
+      // Add staggered animation to feature cards
+      const featureCards = document.querySelectorAll('.feature-card');
+      featureCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add('animate-fade-in-up');
+        }, 300 + (index * 150));
+      });
+      
+      // Ensure proper visibility by forcing a reflow
+      modal.offsetHeight;
+    }
+
+    // Hide welcome modal with animation
+    function hideWelcomeModal() {
+      const modal = document.getElementById('welcome-modal');
+      const content = document.getElementById('welcome-content');
+      const loading = document.getElementById('welcome-loading');
+      
+      // Trigger exit animation
+      content.classList.remove('scale-100', 'opacity-100');
+      content.classList.add('scale-95', 'opacity-0');
+      
+      // Wait for animation to complete before hiding
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        // Mark that user has seen welcome
+        localStorage.setItem('hasSeenWelcome', 'true');
+        
+        // Reset loading overlay for next time
+        if (loading) {
+          loading.style.display = 'flex';
+        }
+        
+        // Show the checklist after welcome modal is hidden
+        document.getElementById('checklist-container').style.display = 'block';
+        document.querySelector('.card.rounded-lg.p-6.mb-8').style.display = 'block';
+      }, 300);
+    }
+
+    // Custom alert functions
+    function showCustomAlert(message, title = 'Alert', type = 'info', showCancel = false) {
+      return new Promise((resolve) => {
+        const modal = document.getElementById('custom-alert-modal');
+        const content = document.getElementById('alert-content');
+        const icon = document.getElementById('alert-icon');
+        const alertTitle = document.getElementById('alert-title');
+        const alertMessage = document.getElementById('alert-message');
+        const confirmBtn = document.getElementById('alert-confirm');
+        const cancelBtn = document.getElementById('alert-cancel');
+        
+        // Set content
+        alertTitle.textContent = title;
+        alertMessage.textContent = message;
+        
+        // Set icon and colors based on type
+        let iconHtml = '';
+        let iconBg = '';
+        let iconColor = '';
+        
+        switch(type) {
+          case 'success':
+            iconHtml = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+            iconBg = 'bg-emerald-100 dark:bg-emerald-900';
+            iconColor = 'text-emerald-600 dark:text-emerald-400';
+            break;
+          case 'error':
+            iconHtml = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+            iconBg = 'bg-red-100 dark:bg-red-900';
+            iconColor = 'text-red-600 dark:text-red-400';
+            break;
+          case 'warning':
+            iconHtml = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path></svg>';
+            iconBg = 'bg-yellow-100 dark:bg-yellow-900';
+            iconColor = 'text-yellow-600 dark:text-yellow-400';
+            break;
+          default: // info
+            iconHtml = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+            iconBg = 'bg-blue-100 dark:bg-blue-900';
+            iconColor = 'text-blue-600 dark:text-blue-400';
+        }
+        
+        icon.className = `w-8 h-8 rounded-full flex items-center justify-center mr-3 ${iconBg} ${iconColor}`;
+        icon.innerHTML = iconHtml;
+        
+        // Show/hide cancel button
+        if (showCancel) {
+          cancelBtn.classList.remove('hidden');
+        } else {
+          cancelBtn.classList.add('hidden');
+        }
+        
+        // Show modal
+        modal.classList.remove('hidden');
+        
+        // Animate in
+        setTimeout(() => {
+          content.classList.remove('scale-95', 'opacity-0');
+          content.classList.add('scale-100', 'opacity-100');
+        }, 100);
+        
+        // Handle confirm button
+        const handleConfirm = () => {
+          hideCustomAlert();
+          resolve(true);
+        };
+        
+        // Handle cancel button
+        const handleCancel = () => {
+          hideCustomAlert();
+          resolve(false);
+        };
+        
+        // Add event listeners
+        confirmBtn.onclick = handleConfirm;
+        cancelBtn.onclick = handleCancel;
+        
+        // Handle escape key
+        const handleEscape = (e) => {
+          if (e.key === 'Escape') {
+            handleConfirm();
+          }
+        };
+        document.addEventListener('keydown', handleEscape);
+        
+        // Store cleanup function
+        modal.cleanup = () => {
+          document.removeEventListener('keydown', handleEscape);
+          confirmBtn.onclick = null;
+          cancelBtn.onclick = null;
+        };
+      });
+    }
+    
+    function hideCustomAlert() {
+      const modal = document.getElementById('custom-alert-modal');
+      const content = document.getElementById('alert-content');
+      
+      // Animate out
+      content.classList.remove('scale-100', 'opacity-100');
+      content.classList.add('scale-95', 'opacity-0');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        // Clean up event listeners
+        if (modal.cleanup) {
+          modal.cleanup();
+        }
+      }, 300);
+    }
+    
+    // Check and show welcome modal if needed
+    function checkAndShowWelcomeModal() {
+      if (shouldShowWelcomeModal()) {
+        showWelcomeModal();
+        
+        // Fallback to ensure content is visible after a delay
+        setTimeout(() => {
+          const content = document.getElementById('welcome-content');
+          if (content) {
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+          }
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+</html>
