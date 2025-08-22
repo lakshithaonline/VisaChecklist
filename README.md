@@ -16,7 +16,7 @@ A comprehensive visa application checklist tool for Australia and New Zealand. T
 
 1. Download the HTML file
 2. Open it in any modern web browser
-3. Start tracking your visa application progress immediately
+3. Add your Firebase configuration
 
 ## Usage
 
